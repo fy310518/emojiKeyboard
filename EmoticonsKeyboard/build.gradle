@@ -1,6 +1,6 @@
-plugins {
-    id 'com.android.library'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'github.com.fy310518'
 
 android {
     compileSdkVersion var.compileSdkVersion
@@ -30,6 +30,6 @@ android {
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$var.androidx"
-    implementation "com.google.android.material:material:$var.androidx"
+//    implementation "com.google.android.material:material:$var.androidx"
 
 }

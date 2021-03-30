@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RecorderLibrary.iml" filepath="$PROJECT_DIR$/RecorderLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EmoticonsKeyboard/RecorderLibrary.EmoticonsKeyboard.iml" filepath="$PROJECT_DIR$/.idea/modules/EmoticonsKeyboard/RecorderLibrary.EmoticonsKeyboard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RecorderLibrary.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RecorderLibrary.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/baseLibrary/RecorderLibrary.baseLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/baseLibrary/RecorderLibrary.baseLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recorderlibrary/RecorderLibrary.recorderlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/recorderlibrary/RecorderLibrary.recorderlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/emojiKeyboard.iml" filepath="$PROJECT_DIR$/.idea/modules/emojiKeyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EmoticonsKeyboard/emojiKeyboard.EmoticonsKeyboard.iml" filepath="$PROJECT_DIR$/.idea/modules/EmoticonsKeyboard/emojiKeyboard.EmoticonsKeyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/emojiKeyboard.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/emojiKeyboard.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/baseLibrary/emojiKeyboard.baseLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/baseLibrary/emojiKeyboard.baseLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recorderlibrary/emojiKeyboard.recorderlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/recorderlibrary/emojiKeyboard.recorderlibrary.iml" />
     </modules>
   </component>
 </project>
