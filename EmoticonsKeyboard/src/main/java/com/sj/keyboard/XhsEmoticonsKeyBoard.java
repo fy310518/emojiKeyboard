@@ -38,6 +38,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
 
     protected LayoutInflater mInflater;
 
+    protected RelativeLayout inputLayout;
     protected ImageView mBtnVoiceOrText;
     protected Button mBtnVoice;
     protected EmoticonsEditText mEtChat;
@@ -70,14 +71,15 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
     }
 
     protected void initView() {
-        mBtnVoiceOrText = ((ImageView) findViewById(R.id.btn_voice_or_text));
-        mBtnVoice = ((Button) findViewById(R.id.btn_voice));
-        mEtChat = ((EmoticonsEditText) findViewById(R.id.et_chat));
-        mBtnFace = ((ImageView) findViewById(R.id.btn_face));
-        mRlInput = ((RelativeLayout) findViewById(R.id.rl_input));
-        mBtnMultimedia = ((ImageView) findViewById(R.id.btn_multimedia));
-        mBtnSend = ((Button) findViewById(R.id.btn_send));
-        mLyKvml = ((FuncLayout) findViewById(R.id.ly_kvml));
+        inputLayout = findViewById(R.id.inputLayout);
+        mBtnVoiceOrText = findViewById(R.id.btn_voice_or_text);
+        mBtnVoice = findViewById(R.id.btn_voice);
+        mEtChat = findViewById(R.id.et_chat);
+        mBtnFace = findViewById(R.id.btn_face);
+        mRlInput = findViewById(R.id.rl_input);
+        mBtnMultimedia = findViewById(R.id.btn_multimedia);
+        mBtnSend = findViewById(R.id.btn_send);
+        mLyKvml = findViewById(R.id.ly_kvml);
 
         mBtnVoiceOrText.setOnClickListener(this);
         mBtnFace.setOnClickListener(this);
@@ -127,7 +129,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
                 if (!TextUtils.isEmpty(s)) {
                     mBtnSend.setVisibility(VISIBLE);
                     mBtnMultimedia.setVisibility(GONE);
-                    mBtnSend.setBackgroundResource(com.keyboard.view.R.drawable.btn_send_bg);
+                    mBtnSend.setBackgroundResource(R.drawable.btn_send_bg);
                 } else {
                     mBtnMultimedia.setVisibility(VISIBLE);
                     mBtnSend.setVisibility(GONE);
@@ -155,7 +157,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
     public void reset() {
         EmoticonsKeyboardUtils.closeSoftKeyboard(this);
         mLyKvml.hideAllFuncView();
-        mBtnFace.setImageResource(com.keyboard.view.R.drawable.icon_face_nomal);
+        mBtnFace.setImageResource(R.drawable.icon_face_nomal);
     }
 
     protected void showVoice() {
@@ -269,6 +271,19 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
             mDispatchKeyEventPreImeLock = true;
             reset();
         }
+    }
+    
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        float space = EmoticonsKeyboardUtils.getScreenHeight(getContext()) - ev.getRawY();//计算 触摸点到屏幕底部的距离
+        float emoticonsLayout = inputLayout.getHeight() + mLyKvml.getHeight();//计算 表情键盘和 输入框的 高度
+        //如果触摸点到屏幕底部的距离 大于 表情键盘和 输入框的 高度 说明点击的是表情键盘
+        if (ev.getAction() == MotionEvent.ACTION_UP && mLyKvml.isShown() && space > emoticonsLayout){
+            reset();//满足条件 关闭软键盘
+            return true;
+        }
+
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override

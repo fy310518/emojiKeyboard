@@ -49,6 +49,13 @@ public class EmoticonsKeyboardUtils {
         return ((ViewGroup) context.findViewById(android.R.id.content)).getChildAt(0);
     }
 
+    public static int getScreenHeight(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.heightPixels;
+    }
+
     public static int getDefKeyboardHeight(Context context) {
         if (sDefKeyboardHeight < 0) {
             sDefKeyboardHeight = dip2px(context, DEF_KEYBOARD_HEAGH_WITH_DP);
